@@ -13,11 +13,8 @@ import base64
 import traceback
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": [
-    "https://reportgenerator.pages.dev",
-    "http://localhost:*", 
-    "http://127.0.0.1:*"
-]}})
+# 更新為更寬鬆的 CORS 設定（僅用於開發和測試，生產環境應更具體）
+CORS(app, supports_credentials=True, origins="*")
 
 # 設定儲存上傳檔案和生成結果的目錄
 UPLOAD_FOLDER = tempfile.mkdtemp()
